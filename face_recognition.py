@@ -5,7 +5,7 @@ import os
 
 ########## KNN CODE ############
 def distance(v1, v2):
-    # Eucledian
+    # Euclidean
     return np.sqrt(((v1 - v2) ** 2).sum())
 
 
