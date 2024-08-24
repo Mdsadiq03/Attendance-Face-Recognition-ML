@@ -26,7 +26,7 @@ while True:
 
     k = 1
 
-    faces = sorted(faces, key=lambda x: x[2]*x[3], reverse=True)
+    faces = sorted(faces, key=lambda x: x[2] * x[3], reverse=True)
 
     skip += 1
 
@@ -48,7 +48,7 @@ while True:
 
     cv2.imshow("faces", frame)
 
-    key_pressed = cv2.waitkey(1) & 0xFF
+    key_pressed = cv2.waitKey(1) & 0xFF
     if key_pressed == ord('q'):
         break
 
@@ -60,7 +60,4 @@ np.save(dataset_path + file_name, face_data)
 print("Dataset saved at : {}".format(dataset_path + file_name + '.npy'))
 
 cap.release()
-cv2.destroyAllWindow()
-
-
-
+cv2.destroyAllWindows()
