@@ -66,7 +66,7 @@ font = cv2.FONT_HERSHEY_SIMPLEX
 
 while True:
     ret, frame = cap.read()
-    if ret == False:
+    if not ret:
         continue
     # Convert frame to grayscale
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
