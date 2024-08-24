@@ -1,5 +1,4 @@
 import cv2
-import numpy as np
 
 cap = cv2.VideoCapture(0)
 face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_alt.xml")
@@ -7,12 +6,12 @@ face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_alt.xml")
 while True:
 	ret, frame = cap.read()
 
-	gray_frame = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
+	gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
 	if not ret:
 		continue
 
-	faces = face_cascade.detectMultiScale(gray_frame,1.3,5)
+	faces = face_cascade.detectMultiScale(gray_frame, 1.3, 5)
 	if len(faces) == 0:
 		continue
 
@@ -20,8 +19,8 @@ while True:
 		x, y, w, h = face
 
 		offset = 10
-		face_offset = frame[y-offset:y+h+offset,x-offset:x+w+offset]
-		face_selection = cv2.resize(face_offset,(100,100))
+		face_offset = frame[y-offset:y+h+offset, x-offset:x+w+offset]
+		face_selection = cv2.resize(face_offset, (100, 100))
 
 		cv2.imshow("Face", face_selection)
 		cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
